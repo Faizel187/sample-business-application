@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+
+		<meta charset="utf-8" />
+		<link rel="stylesheet" href="css/style.css" />
+		<script src="js/budget.js"> </script>
+
+		<script type="text/javascript">
+
+		var n1, n2, n3, n4;  // points to the navigation
+		var d1, d2, d3, d4; // point to the div tags
+		var highLight = "#ffde07";
+		var normal = "#4c4d4e";
+
+		function init () {
+
+			// calls the navigation
+			n1 = document.getElementById("nav1");
+			n2 = document.getElementById("nav2");
+			n3 = document.getElementById("nav3");
+			n4 = document.getElementById("nav4");
+
+			// calls the ids in divs
+			
+			d1 = document.getElementById("home");
+			d2 = document.getElementById("budget");
+			d3 = document.getElementById("location");
+			d4 = document.getElementById("contact");
+
+			//colors the nav1 to yellow
+			n1.style.background = highLight;
+			initSliders();
+
+		}
+
+		 function showTab(tab) {
+			// tab 1 = home 2 = budget 3 = location 4 = contact
+
+			//alert(tab);
+
+			if(tab ==1) {
+				n1.style.background = highLight;
+				n2.style.background = normal;
+				n3.style.background = normal;
+				n4.style.background = normal;
+				
+				d1.style.display = "block";
+				d2.style.display = "none";
+				d3.style.display = "none";
+				d4.style.display = "none";
+
+			} 
+		if(tab ==2) {
+				n1.style.background = normal;
+				n2.style.background = highLight;
+				n3.style.background = normal;
+				n4.style.background = normal;
+
+				d1.style.display = "none";
+				d2.style.display = "block";
+				d3.style.display = "none";
+				d4.style.display = "none";
+
+			} 
+			if(tab ==3) {
+				n1.style.background = normal;
+				n2.style.background = normal;
+				n3.style.background = highLight;
+				n4.style.background = normal;
+				
+				d1.style.display = "none";
+				d2.style.display = "none";
+				d3.style.display = "block";
+				d4.style.display = "none";
+
+			} 
+			if(tab ==4) {
+				n1.style.background = normal;
+				n2.style.background = normal;
+				n3.style.background = normal;
+				n4.style.background = highLight;
+				
+				d1.style.display = "none";
+				d2.style.display = "none";
+				d3.style.display = "none";
+				d4.style.display = "block";
+		} 
+
+	} 
+
+		</script>
+
+		<title> Business Application </title>
+
+	</head>
+
+	<body onLoad="init()">
+
+	<main>
+
+		<nav>
+
+		<!-- return false when loading content keeps
+		     user onpage. Ovverides default browser 
+		      behaviour. -->
+
+	<a href="#" id="nav1" onclick="showTab(1); return false;">Home</a>
+	<a href="#" id="nav2" onclick="showTab(2); return false; ">Budget</a>
+	<a href="#" id="nav3" onclick="showTab(3); return false;">Location</a>
+	<a href="#" id="nav4" onclick="showTab(4); return false;">Contact</a>
+			
+	</nav>
+
+		<div id="home">
+
+		<h1>Development made simple - Home</h1>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+			
+		</div> <!-- closing of home -->
+		<div id="budget">
+
+			<h1>Budget Slider</h1>
+			<p>Use the sliders to set the monthly limit for each budget line.</p>
+
+			<form id="form1" name="form1">
+				
+			<div id="fd">
+				<table width="100%" border="0" cellpadding="4">
+
+				<tbody>
+					
+					<tr>
+					
+				<td width="19%" align="right"> Food:</td>
+				<td width="72%"> 
+				<input type="range" onInput="addAll();" max="2000" min="0" id="food" style="width:400px" /> </td>
+				<td width="9%"> <output for="food" id="tFoodOut"> $1000 </output></td>
+
+				</tr>
+
+				<!-- end of slider1-->
+
+					<tr>
+					
+				<td align="right"> Transport:</td>
+				<td width="72%"> <input type="range" onInput="addAll();" max="500" min="0" id="trans" style="width:400px" /> </td>
+				<td width="9%"> <output for="trans" id="transOut"> $250 </output></td>
+
+				</tr>
+
+				<!-- end of slider2-->
+
+					<tr>
+					
+				<td align="right"> Entertainment:</td>
+				<td width="72%"> <input type="range" onInput="addAll();" max="500" min="0" id="ent" style="width:400px" /> </td>
+				<td width="9%"> <output for="ent" id="entOut"> $250 </output></td>
+
+				</tr>
+
+				<!-- end of slider3-->
+
+					<tr>
+					
+				<td align="right"> Emergency:</td>
+				<td width="72%"> <input type="range" onInput="addAll();" max="500" min="0" id="emerg" style="width:400px" /> </td>
+				<td width="9%"> <output for="ermeg" id="emergOut"> $250 </output></td>
+
+				</tr>
+
+				<!-- end of slider4 -->
+
+					<tr>
+					
+				<td align="right"> Clothing:</td>
+				<td width="72%"> <input type="range" onInput="addAll();" max="500" min="0" id="clothing" style="width:400px" /> </td>
+				<td width="9%"> <output for="clothing" id="clothingOut"> $250 </output></td>
+
+				</tr>
+
+				<!-- end of slider5-->
+
+				<tr>
+					
+					<td align="right"> Total </td>
+					<td>&nbsp;</td>
+					<td> <div id="mytotal">
+						
+					</div> <!-- myTotal end -->
+
+					</td>
+				</tr>
+
+
+				</tbody>
+					
+
+				</table>
+
+
+			</div> <!-- closing of fd -->
+
+			</form>
+
+
+			
+		</div> <!-- budget end-->
+
+		<div id="location">
+
+		<h1 align="left">North Bay City Hall</h1>
+
+		<!-- embedded from google maps -->
+		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2756.035408332704!2d-79.46325938441407!3d46.30913427912006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4d29aa852de5fcaf%3A0xb7b4d5cb0f7ab8d3!2sNorth+Bay+City+Hall!5e0!3m2!1sen!2sbe!4v1453817779831" width="96%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+			
+		</div> <!-- location end-->
+
+		<div id="contact">
+			<h1>Contact Us</h1>
+
+			<form id="form2" name="form2">
+				
+				<fieldset>
+					
+						<legend>Contact Information </legend>
+
+						<!-- cellpadding amount of spacing between text and table cell-->
+						<table width="80%" cellpadding="6px" border="0">
+						
+						<tbody>
+							
+						<tr>
+							<td align="right"> <label for="cName"> Your Name: </label> </td>
+							<td> <input name="cName" type="text" id="cName" required placeholder="enter your name"/> </td>
+						</tr>
+
+						<tr>
+							<td align="right"> <label for="email"> Your Email: </label> </td>
+							<td> <input name="cName" type="email" id="email" required placeholder="enter your email address"/> </td>
+						</tr>
+
+						<tr>
+							<td align="right"> <label for="respDate"> Required Response Date: </label> </td>
+							<td> <input name="respDate" type="date" id="respDate" required /> </td>
+						</tr>
+
+						<tr>
+							<td align="right"> <label for="respTime"> Preferred Time: </label> </td>
+							<td> <input name="respTime" type="time" id="respTime"/> (optional): </td>
+						</tr>
+
+						<tr>
+							<td align="right" valign="top"> <label for="comment"> Reason for Contact: </label> </td>
+							<td> <textarea name="comment" id="comment" rows="4"></textarea> </td>
+						</tr>
+
+						<tr>
+							<td align="right"> <input type="submit" name="submit" value="submit" /></td>
+							<td> <input type="reset" name="reset" value="Clear Form" /> </td>
+						</tr>
+
+
+						</tbody>	
+						</table>
+				</fieldset>
+
+			</form>
+
+		</div> <!-- contact end-->
+
+		<footer>
+			
+			<a href="http://www.developmentmadesimple.com" target="new">Development made simple</a> &copy; 2015
+
+		</footer>
+
+	</main>
+
+
+	</body>
+
+
+</html>
